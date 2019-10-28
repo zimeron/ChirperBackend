@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
-    def user_params
-        params_require(:current_user).permit(:id, :username, :password)
-    end
 
     def create
         puts "Trying to Create New user"
-        @user = User.new(user_params)
+        @user = User.new(params[:id][:username][:password])
         if @user.save
             puts "User successfully created"
             head 200, content_type: "text/json"
