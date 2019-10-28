@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
     def create
         puts "Trying to Create New user"
-        @user = User.new(params[:id][:username][:password])
+        puts params
+        @user = User.new(params[:id][:username][:password])        
         if @user.save
             puts "User successfully created"
             head 200, content_type: "text/json"
