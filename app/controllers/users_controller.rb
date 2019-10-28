@@ -12,5 +12,6 @@ class UsersController < ApplicationController
         else
             puts "Something went wrong while creating new User"
             head 500, content_type: "text/json"
+        end
     end
 end
