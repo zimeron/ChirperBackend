@@ -4,6 +4,13 @@ class UsersController < ApplicationController
     end
 
     def create
-        User.create(user_params)
+        puts "Trying to Create New user"
+        @user = User.new(user_params)
+        if @user.save
+            puts "User successfully created"
+            head 200, content_type: "text/json"
+        else
+            puts "Something went wrong while creating new User"
+            head 500, content_type: "text/json"
     end
 end
