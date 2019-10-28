@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+# Devise for Authentication
+gem 'devise', '~> 4.7.1'
 
 # Use Rack-Cors for CORS authentication
 gem 'rack-cors', '~> 1.0.3'
