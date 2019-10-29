@@ -23,21 +23,21 @@ default: &default
 
 development:
   <<: *default
-  database: ChirperBackend_development
+  database: d4lbjl188n2a9
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: ChirperBackend
+  username: bwmumtrsfkkzcx
 
   # The password associated with the postgres role (username).
-  #password:
+  password: 02278b41d3f6df5d33f2271b319836103ebf95c893ef12583750caefc4ea45f2
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  #host: localhost
+  host: ec2-54-204-39-43.compute-1.amazonaws.com
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: ChirperBackend_production
-  username: ChirperBackend
-  password: <%= ENV['CHIRPERBACKEND_DATABASE_PASSWORD'] %>
+  database: d4lbjl188n2a9
+  username: bwmumtrsfkkzcx
+  password: 02278b41d3f6df5d33f2271b319836103ebf95c893ef12583750caefc4ea45f2
+  host: ec2-54-204-39-43.compute-1.amazonaws.com
