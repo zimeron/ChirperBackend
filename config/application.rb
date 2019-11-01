@@ -11,6 +11,11 @@ module ChirperBackend
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    config.api_only = true
+
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
@@ -18,8 +23,11 @@ module ChirperBackend
 
     config.middleware.insert_before 0, Rack::Cors do
    	 allow do
-         	origins 'localhost:3000', 'localhost:4200'
-                resource '*', headers: :any, methods: [:get, :post, :options, :delete]
+         	origins 'localhost:3000', 'localhost:4200', 'chirperfrontend.herokuapp.com'
+                resource '*', 
+                headers: :any, 
+                methods: [:get, :head, :post, :options, :delete, :put, :patch],
+                credentials: true
          end
     end
   end

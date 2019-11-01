@@ -27,6 +27,8 @@ gem 'devise', '~> 4.7.1'
 gem 'rack-cors', '~> 1.0.3'
 # VS code integration
 gem 'solargraph', '~> 0.37.2'
+# JSON Web Token Auth
+gem 'jwt'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
