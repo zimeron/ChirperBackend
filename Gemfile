@@ -23,9 +23,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 # Devise for Authentication
 gem 'devise', '~> 4.7.1'
-
 # Use Rack-Cors for CORS authentication
 gem 'rack-cors', '~> 1.0.3'
+# VS code integration
+gem 'solargraph', '~> 0.37.2'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -5,11 +5,13 @@ class UsersController < ApplicationController
         @user = User.new(user_params)        
         if @user.save
             puts "User successfully created"
-            head 200, content_type: "text/json"
+            response.status=(201)
+            render json: {status: "Success",  message: ["Registration Successful!"]}
         else
             puts "Something went wrong while creating new User"
             puts(@user.errors.full_messages)
-            head 500, content_type: "text/json"
+            response.status=(422)
+            render json: { status: "Error", message: [@user.errors.full_messages]}
         end
     end
 
