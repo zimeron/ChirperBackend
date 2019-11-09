@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       response.status=(200)
-      render json: {status: "Success", message: ["Log in Successful!"], userid: user.id}
+      render json: {status: "Success", message: ["Log in Successful!"], userid: user.id, username: user.username}
     else 
       response.status=(401)
       render json: {status: "Error", message: ["Username or password invalid"]}

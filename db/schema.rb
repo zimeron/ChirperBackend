@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_225751) do
+ActiveRecord::Schema.define(version: 2019_11_08_213040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "post", id: :uuid, default: nil, force: :cascade do |t|
-    t.string "content", null: false
-    t.datetime "date", null: false
+  create_table "posts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "userid", null: false
+    t.string "content", limit: 280, null: false
+    t.string "username", null: false
+    t.index ["id"], name: "posts_un", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -26,7 +30,6 @@ ActiveRecord::Schema.define(version: 2019_10_29_225751) do
     t.string "username", null: false
     t.string "password_digest", null: false
     t.bigint "following", array: true
-    t.bigint "posts", array: true
     t.index ["username", "id"], name: "users_un", unique: true
   end
 
