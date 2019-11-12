@@ -1,8 +1,13 @@
 class PostsController < ApplicationController
     def show
         puts "Retrieving and sorting posts"
+        @following = []
+        if User.find(params[:id]).following != nil
+            @following = User.find(params[:id]).following
+        end
+        @following.push(params[:id])
         @posts = []
-        Post.where("userid = ?", params[:id])
+        Post.where(userid: @following)
             .order(created_at: :desc)
             .find_each(:batch_size => 20) do |post|
             @posts.push(post)
