@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
 
+    # Authorization cookie and session management
     include ActionController::Cookies
 
 
